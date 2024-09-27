@@ -4,4 +4,4 @@ powershell -Command "Import-Module NtObjectManager; if (!$?) { Install-Module -N
 ::make script
 make
 ::edit key so it runs on boot instead of explorer
-reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon" /v Shell /d "bootchoice.exe" /f
+reg add "Computer\HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\System" /v Shell /d "bootchoice.exe" /f
