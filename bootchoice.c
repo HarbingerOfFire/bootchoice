@@ -2,12 +2,13 @@
 #include <stdlib.h>
 
 int main() {
-    // PowerShell script to start explorer.exe as TrustedInstaller
-    char* explorer = "powershell -Command \"Import-Module NtObjectManager; Start-Service TrustedInstaller; "
+    // PowerShell script to start explorer.exe as TrustedInstaller. Not needed but kept for future
+    /*char* explorer = "powershell -Command \"Import-Module NtObjectManager; Start-Service TrustedInstaller; "
                      "$p = Get-NtProcess -Name TrustedInstaller.exe; $th = $p.GetFirstThread(); "
                      "$current = Get-NtThread -Current -PseudoHandle; $imp = $current.ImpersonateThread($th); "
                      "$imp_token = Get-NtToken -Impersonation; $imp_token.Groups | Where-Object {$_.Sid.Name -match 'TrustedInstaller'}; "
                      "if (Test-Path variable:global:imp_token) { Invoke-Expression explorer.exe }; Stop-Service TrustedInstaller\"";
+    */
 
     int buf;
 
@@ -19,14 +20,14 @@ int main() {
         switch (buf) {
         case 0:
             // Launch Command Prompt (CLI Mode)
-            system("cmd.exe");
+            system("conhost.exe"); //old graphics terminal, automatically opens to cmd.exe
             break;
         case 1:
             // Kill any existing explorer processes
-            system("taskkill /F /IM explorer.exe");
+            system("taskkill /F /IM explorer.exe > C:/NUL"); //kill lingering proccess of explorer.exe (output stored in null if errors)
 
             // Execute PowerShell command to start explorer.exe as TrustedInstaller
-            system(explorer);
+            system("explorer.exe");
             break;
         case 2:
             // Exit the program

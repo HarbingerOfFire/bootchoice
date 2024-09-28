@@ -3,7 +3,7 @@
 # Compiler
 CC = gcc
 
-# Output executable name
+# Output executable name. Add to system32 so it's in path
 TARGET = C:/windows/system32/bootchoice.exe
 
 # Source file
