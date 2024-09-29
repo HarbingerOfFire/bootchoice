@@ -16,6 +16,3 @@ all: $(TARGET)
 $(TARGET): $(SRC)
 	$(CC) -o $(TARGET) $(SRC)
 
-# Clean up generated files
-clean:
-	rm -f $(TARGET)
