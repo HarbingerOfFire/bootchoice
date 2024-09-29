@@ -6,7 +6,7 @@
 reg DELETE HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System /v Shell /f
 
 ::delete the executable for clean uninstall (undo make)
-del C:/windows/system32/bootchoice.exe
+del /F C:\windows\system32\bootchoice.exe
 
 ::if you installed for all users, run this to reset key to explorer.exe
 ::reg add HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon /v Shell /d "explorer.exe" /f
