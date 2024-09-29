@@ -1,6 +1,7 @@
 @echo off
 ::install prereqs Needed for trusted installed mode (old version)
 ::powershell -Command "Import-Module NtObjectManager; if (!$?) { Install-Module -Name NtObjectManager -RequiredVersion 1.1.32 -Force; Import-Module NtObjectManager };"
+
 ::make script
 make
 ::edit key so it runs on boot instead of explorer
