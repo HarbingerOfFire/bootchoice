@@ -12,17 +12,17 @@ int main() {
 
     int buf;
     printf("\
-░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░\n\
-░       ░░░░      ░░░░      ░░░        ░░░      ░░░  ░░░░  ░░░      ░░░        ░░░      ░░░        ░\n\
-▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒▒▒▒  ▒▒▒▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒  ▒▒▒▒▒  ▒▒▒▒▒  ▒▒▒▒  ▒▒  ▒▒▒▒▒▒▒\n\
-▓       ▓▓▓  ▓▓▓▓  ▓▓  ▓▓▓▓  ▓▓▓▓▓  ▓▓▓▓▓  ▓▓▓▓▓▓▓▓        ▓▓  ▓▓▓▓  ▓▓▓▓▓  ▓▓▓▓▓  ▓▓▓▓▓▓▓▓      ▓▓▓\n\
-█  ████  ██  ████  ██  ████  █████  █████  ████  ██  ████  ██  ████  █████  █████  ████  ██  ███████\n\
-█       ████      ████      ██████  ██████      ███  ████  ███      ███        ███      ███        █\n\
-████████████████████████████████████████████████████████████████████████████████████████████████████\n\
-");
+########   #######   #######  ########  ######  ##     ##  #######  ####  ######  ######## \n\
+##     ## ##     ## ##     ##    ##    ##    ## ##     ## ##     ##  ##  ##    ## ##       \n\
+##     ## ##     ## ##     ##    ##    ##       ##     ## ##     ##  ##  ##       ##       \n\
+########  ##     ## ##     ##    ##    ##       ######### ##     ##  ##  ##       ######   \n\
+##     ## ##     ## ##     ##    ##    ##       ##     ## ##     ##  ##  ##       ##       \n\
+##     ## ##     ## ##     ##    ##    ##    ## ##     ## ##     ##  ##  ##    ## ##       \n\
+########   #######   #######     ##     ######  ##     ##  #######  ####  ######  ######## \n\
+\n");
     while (1) {
         // User prompt to select between CMD, Explorer, or Exit
-        printf("Choose boot option:\n0: cmd.exe (CLI Mode)\n1: Full Windows GUI (explorer.exe)\n2: Exit Shell\n3: Run some other program (via windows run dialog)\nEnter Choice: ");
+        printf("Choose boot option:\n0: cmd.exe (CLI Mode)\n1: Full Windows GUI (explorer.exe)\n2: Run some other program (via windows run dialog)\n3: Exit Shell\nEnter Choice: ");
         scanf("%d", &buf);
 
         switch (buf) {
@@ -38,12 +38,12 @@ int main() {
             system("explorer.exe");
             break;
         case 2:
+            //run something else via windows run dialog (use shell32 so you don't have to launch full gui)
+            system("rundll32 shell32.dll,#61");
+        case 3:
             // Exit the program
             printf("Exiting shell...\n");
             return 0;
-        case 3:
-            //run something else via windows run dialog
-            system("%appdata%\\Microsoft\\Windows\\Start^ Menu\\Programs\\System^ Tools\\Run.lnk");
         default:
             // Handle invalid input
             printf("Incorrect Choice. Please try again.\n");
