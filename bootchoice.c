@@ -32,7 +32,7 @@ int main() {
             break;
         case 1:
             // Kill any existing explorer processes
-            system("taskkill /F /IM explorer.exe > C:/NUL"); //kill lingering proccess of explorer.exe (output stored in null if errors)
+            system("taskkill /F /IM explorer.exe 2> C:/NUL"); //kill lingering proccess of explorer.exe (output stored in null if errors)
 
             // Execute PowerShell command to start explorer.exe as TrustedInstaller
             system("explorer.exe");
